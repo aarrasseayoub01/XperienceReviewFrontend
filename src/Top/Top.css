@@ -1,0 +1,13 @@
+.dropdown1{
+    width: 40%;
+}
+.randomColor {
+    background-color: rgb(100,120,2
+    );
+    height: 25px;
+    width: 25px;
+    border-radius: 5px;
+  }
+.textColor{
+    color: rgb(50, 50, 50);
+}

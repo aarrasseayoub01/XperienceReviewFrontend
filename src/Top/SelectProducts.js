@@ -13,15 +13,35 @@ function SelectProducts() {
     // do something
     setOpen(false);
   };
+
   return (
-    <Dropdown
-      open={open}
-      trigger={<button>Dropdown</button>}
-      menu={[
-        <button onClick={handleMenuOne}>Menu 1</button>,
-        <button onClick={handleMenuTwo}>Menu 2</button>,
-      ]}
-    />
+    <>
+      <div className="textColor" style={{ marginBottom: "5px" }}>
+        select products
+      </div>
+      <Dropdown
+        open={open}
+        trigger={
+          <div className="dropdown1 trigger">
+            <div className="randomColor" />
+            <div className="productName left-item">My App + 2</div>
+            <div className="dropdownArrow right-item">
+              <img src="down-arrow.png" alt="down-arrow" />
+            </div>
+          </div>
+        }
+        menu={[
+          <div onClick={handleMenuOne} className=" ">
+            <div className="randomColor" />
+            <div className="productName left-item">My App + 3</div>
+          </div>,
+          <div onClick={handleMenuTwo} className=" ">
+            <div className="randomColor" />
+            <div className="productName left-item">My App + 4</div>
+          </div>,
+        ]}
+      />
+    </>
   );
 }
 
