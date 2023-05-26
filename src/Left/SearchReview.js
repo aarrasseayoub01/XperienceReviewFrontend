@@ -1,5 +1,4 @@
-import { SlMagnifier } from "react-icons/sl";
-
+import "./Left.css";
 function SearchReview() {
   return (
     <div
@@ -8,18 +7,29 @@ function SearchReview() {
         alignItems: "center",
         outline: "1px solid #ccc",
         borderRadius: "2px",
-        padding: "5px",
+        paddingInline: "5px",
+        paddingBlock: "2px",
       }}
       className="searchContainer"
     >
-      <img src="magnet.png" alt="magnet" />
+      <img
+        src="magnet.png"
+        alt="magnet"
+        style={{
+          width: "24px",
+          height: "24px",
+          marginRight: "5px",
+        }}
+      />
       <input
+        className="inputPlaceholder"
         type="text"
         placeholder="search"
         style={{
           padding: "5px 10px",
           border: "none",
           outline: "none",
+          color: "black",
         }}
       />
     </div>

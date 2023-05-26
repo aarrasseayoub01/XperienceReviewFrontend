@@ -1,9 +1,10 @@
 .App {
-  margin-inline: 20vw;
+  margin-inline: auto;
+  width:900px
 }
 .topLayout{
   display: inline-grid;
-  grid-template-columns: 28vw 10vw 12vw 10vw;
+  grid-template-columns: 420px 153px 180px 144px;
   align-items: center;
   justify-items: center;
   padding-bottom: 30px;
@@ -11,7 +12,7 @@
 
 .mainLayout{
   display: inline-grid;
-  grid-template-columns: 15vw 45vw;
+  grid-template-columns: 225px 675px;
  
 }
 

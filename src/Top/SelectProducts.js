@@ -20,12 +20,13 @@ function SelectProducts() {
       <Dropdown
         open={open}
         title={"select products"}
+        width={"440px"}
         trigger={
           <div
             className="dropdown1"
             style={{
               display: "grid",
-              gridTemplateColumns: "3vw 9vw 16vw",
+              gridTemplateColumns: "10% 32% 57%",
               alignItems: "center",
               padding: "5px",
               border: "1px solid",

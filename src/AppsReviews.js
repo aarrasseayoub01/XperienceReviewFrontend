@@ -1,5 +1,8 @@
 import "./App.css";
+import ReviewsFilter from "./Left/ReviewsFilter";
 import SearchReview from "./Left/SearchReview";
+import TimeFilter from "./Left/TimeFilter";
+import VersionFilter from "./Left/VersionFilter";
 import SelectProducts from "./Top/SelectProducts";
 import SortingReviews from "./Top/SortingReviews";
 import Translation from "./Top/Translation";
@@ -21,6 +24,9 @@ function AppsReviews() {
       <div className="mainLayout">
         <div className="leftLayout">
           <SearchReview />
+          <TimeFilter />
+          <ReviewsFilter />
+          <VersionFilter />
         </div>
       </div>
     </div>

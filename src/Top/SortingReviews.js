@@ -1,4 +1,3 @@
-import "./Top.css";
 import React, { useState } from "react";
 import Dropdown from "../Utilities/Dropdown";
 import { RxCaretSort } from "react-icons/rx";
@@ -20,12 +19,13 @@ function SortingReviews() {
       <Dropdown
         open={open}
         title={"sorting"}
+        width={"180px"}
         trigger={
           <div
             className="dropdown1"
             style={{
               display: "grid",
-              gridTemplateColumns: "5vw 3vw",
+              gridTemplateColumns: "62.5% 37.5%",
               alignItems: "center",
               paddingInline: "10px",
               border: "1px solid",
@@ -36,7 +36,7 @@ function SortingReviews() {
             <div
               className="productName left-item"
               style={{
-                fontSize: "0.8vw",
+                fontSize: "12px",
                 fontWeight: 500,
               }}
             >

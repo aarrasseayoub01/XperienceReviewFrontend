@@ -1,7 +1,8 @@
+import "./Left.css";
 import React, { useState } from "react";
 import Dropdown from "../Utilities/Dropdown";
-import { RxCaretSort } from "react-icons/rx";
-function Translation() {
+import { IoIosArrowDown } from "react-icons/io";
+function TimeFilter() {
   const [open, setOpen] = useState(false);
 
   const handleMenuOne = () => {
@@ -18,29 +19,28 @@ function Translation() {
     <>
       <Dropdown
         open={open}
-        title={"translation"}
-        width={"144px"}
+        title={""}
         trigger={
           <div
             className="dropdown1"
             style={{
               display: "grid",
-              gridTemplateColumns: "62.5% 37.5%",
+              gridTemplateColumns: "3vw 8vw 1vw",
               alignItems: "center",
-              paddingInline: "10px",
+              padding: "5px",
               border: "1px solid",
               borderColor: "rgba(0, 0, 0, 0.3)",
               borderRadius: "5px",
             }}
           >
+            <img src="time.png" alt="time" style={{ width: "24px" }} />
             <div
               className="productName left-item"
               style={{
-                fontSize: "12px",
-                fontWeight: 500,
+                marginLeft: "-10px",
               }}
             >
-              English
+              all time
             </div>
             <div
               className="dropdownArrow"
@@ -49,32 +49,18 @@ function Translation() {
                 marginTop: "5px",
               }}
             >
-              <RxCaretSort size={20} />
+              <IoIosArrowDown size={20} color="grey" />
             </div>
           </div>
         }
         menu={[
-          <div onClick={handleMenuOne} className="divider ">
-            <div></div>
-            <div
-              className="productName item-left "
-              style={{
-                fontSize: "1.8vh",
-              }}
-            >
-              English
-            </div>
+          <div onClick={handleMenuOne} className=" ">
+            <div className="randomColor" />
+            <div className="productName left-item">My App + 3</div>
           </div>,
-          <div onClick={handleMenuTwo} className="divider ">
-            <div></div>
-            <div
-              className="productName item-left"
-              style={{
-                fontSize: "1.8vh",
-              }}
-            >
-              French
-            </div>
+          <div onClick={handleMenuTwo} className=" ">
+            <div className="randomColor" />
+            <div className="productName left-item">My App + 4</div>
           </div>,
         ]}
       />
@@ -82,4 +68,4 @@ function Translation() {
   );
 }
 
-export default Translation;
+export default TimeFilter;

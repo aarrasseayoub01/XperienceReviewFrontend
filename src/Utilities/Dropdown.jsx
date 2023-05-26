@@ -1,6 +1,6 @@
 import "./Dropdown.css"
 import React from "react";
-const Dropdown = ({ title, trigger, menu }) => {
+const Dropdown = ({ title, trigger, menu, width }) => {
     const [open, setOpen] = React.useState(false);
   
     const handleOpen = () => {
@@ -8,7 +8,7 @@ const Dropdown = ({ title, trigger, menu }) => {
     };
   
     return (
-      <div className="dropdown">
+      <div className="dropdown" style={{width: width}}>
         <div className="textColor" style={{ marginBottom: "5px" }}>
         {title}
       </div>

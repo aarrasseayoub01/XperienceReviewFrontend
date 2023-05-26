@@ -1,0 +1,19 @@
+.inputPlaceholder::placeholder{
+    color:black;
+    opacity:1;
+}
+
+.list-container {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+    transform: translateY(-100%);
+
+  }
+  
+.list-container.expanded {
+    height: auto;
+    transition: height 0.3s ease;
+    transform: translateY(0);
+
+}
