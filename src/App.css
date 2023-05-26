@@ -8,18 +8,25 @@
   align-items: center;
   justify-items: center;
   padding-bottom: 30px;
+  position: fixed;
+  background-color: white;
+  z-index: 999;
 }
+
 
 .mainLayout{
   display: inline-grid;
-  grid-template-columns: 225px 675px;
- 
+  grid-template-columns: 233px 675px;
+  
 }
-
 .leftLayout{
-  border-right: 0.5px solid grey;
-  padding:6%
+  padding:13.5px;
+  position:fixed;
+  background-color: white;
+  z-index:1;
 }
 .rightLayout{
-  border-left: 0.5px solid grey;
+  border-left: 0.5px solid #cccccc60;
+  
+  
 }

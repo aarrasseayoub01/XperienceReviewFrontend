@@ -5,10 +5,11 @@ function Review() {
   return (
     <div
       style={{
+        margin: "15px",
         padding: "15px",
         borderRadius: "7px",
         boxShadow:
-          " 2px 2px 4px rgba(0, 0, 0, 0.1), 2px 4px 8px rgba(0, 0, 0, 0.1)",
+          "0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1), 0 -2px 4px rgba(0, 0, 0, 0.1), 0 -4px 8px rgba(0, 0, 0, 0.1)",
       }}
     >
       <div
@@ -33,8 +34,10 @@ function Review() {
             width: "35px",
             height: "24px",
             fontSize: "12px",
-            textAlign: "center",
             fontWeight: "500",
+            alignItems: "center",
+            display: "flex",
+            justifyContent: "center",
           }}
         >
           iOS

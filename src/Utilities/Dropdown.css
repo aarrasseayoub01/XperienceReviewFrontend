@@ -9,16 +9,17 @@
     list-style-type: none;
     margin: 5px 0;
     padding: 0;
-  
+  background-color: white;
     border: 1px solid grey;
     width: 95%;
     margin-left: 5px;
+    border-radius:5px;
+    z-index:9999;
   }
   
   .menu > li {
     margin: 0;
-  
-    background-color: white;
+    
     border-bottom: 1px solid rgb(0, 0, 0);
     width: 100%;
     margin: 0;

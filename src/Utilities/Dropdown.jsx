@@ -6,7 +6,9 @@ const Dropdown = ({ title, trigger, menu, width }) => {
     const handleOpen = () => {
       setOpen(!open);
     };
-  
+   
+   
+    
     return (
       <div className="dropdown" style={{width: width}}>
         <div className="textColor" style={{ marginBottom: "5px" }}>

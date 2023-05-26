@@ -13,7 +13,11 @@ function ReviewsBody() {
           gap: "5px",
         }}
       >
-        <div style={{ fontWeight: "500" }}>Viewing 1-10 of 157 Reviews</div>
+        <div
+          style={{ fontWeight: "500", fontSize: "14px", marginLeft: "15px" }}
+        >
+          Viewing 1-10 of 157 Reviews
+        </div>
         <button
           style={{
             backgroundColor: "white",
@@ -24,6 +28,7 @@ function ReviewsBody() {
             justifyContent: "space-around",
             padding: "5px",
             cursor: "pointer",
+            marginTop: "15px",
           }}
         >
           <IoMdNotifications size={20} color="black" />
@@ -40,6 +45,7 @@ function ReviewsBody() {
             justifyContent: "space-around",
             padding: "5px",
             cursor: "pointer",
+            marginTop: "15px",
           }}
         >
           <IoMdNotifications size={20} color="black" />
@@ -48,6 +54,9 @@ function ReviewsBody() {
         </button>
       </div>
       <div style={{ marginTop: "10px" }}>
+        <Review />
+        <Review />
+        <Review />
         <Review />
       </div>
     </>

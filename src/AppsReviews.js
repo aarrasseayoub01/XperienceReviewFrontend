@@ -14,7 +14,7 @@ function AppsReviews() {
       <div
         className="topLayout"
         style={{
-          borderBottom: "1px solid gray",
+          borderBottom: "1px solid #5c5c5c40",
         }}
       >
         <SelectProducts />
@@ -23,7 +23,7 @@ function AppsReviews() {
         <Translation />
       </div>
 
-      <div className="mainLayout">
+      <div className="mainLayout" style={{ marginTop: "100px" }}>
         <div className="leftLayout">
           <SearchReview />
           <TimeFilter />
@@ -31,10 +31,8 @@ function AppsReviews() {
           <VersionFilter />
           <CountryFilter />
         </div>
-        <div
-          className="rightLayout"
-          style={{ padding: "10px", paddingTop: "20px" }}
-        >
+        <div></div>
+        <div className="rightLayout" style={{ paddingTop: "20px" }}>
           <ReviewsBody />
         </div>
       </div>
