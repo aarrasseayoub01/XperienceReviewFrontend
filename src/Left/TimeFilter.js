@@ -25,9 +25,9 @@ function TimeFilter() {
             className="dropdown1"
             style={{
               display: "grid",
-              gridTemplateColumns: "3vw 8vw 1vw",
+              gridTemplateColumns: "45px 120px 15px",
               alignItems: "center",
-              padding: "5px",
+              padding: "2px",
               border: "1px solid",
               borderColor: "rgba(0, 0, 0, 0.3)",
               borderRadius: "5px",

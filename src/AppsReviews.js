@@ -1,4 +1,5 @@
 import "./App.css";
+import CountryFilter from "./Left/CountryFilter";
 import ReviewsFilter from "./Left/ReviewsFilter";
 import SearchReview from "./Left/SearchReview";
 import TimeFilter from "./Left/TimeFilter";
@@ -27,6 +28,7 @@ function AppsReviews() {
           <TimeFilter />
           <ReviewsFilter />
           <VersionFilter />
+          <CountryFilter />
         </div>
       </div>
     </div>

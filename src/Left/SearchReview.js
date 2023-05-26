@@ -6,7 +6,7 @@ function SearchReview() {
         display: "flex",
         alignItems: "center",
         outline: "1px solid #ccc",
-        borderRadius: "2px",
+        borderRadius: "3.5px",
         paddingInline: "5px",
         paddingBlock: "2px",
       }}

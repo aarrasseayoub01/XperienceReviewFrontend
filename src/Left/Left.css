@@ -4,16 +4,16 @@
 }
 
 .list-container {
-    height: 0;
+    max-height: 0;
     overflow: hidden;
-    transition: height 0.3s ease;
-    transform: translateY(-100%);
+    transition: max-height 0.3s ease;
+    /* transform: translateY(-100%); */
 
   }
   
 .list-container.expanded {
-    height: auto;
-    transition: height 0.3s ease;
+    max-height: 250px;
+    transition: max-height 0.3s ease;
     transform: translateY(0);
 
 }

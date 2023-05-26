@@ -18,7 +18,7 @@ function VersionFilter() {
           border: "none",
           outline: "none",
           cursor: "pointer",
-          marginTop: "10px",
+          marginTop: "20px",
         }}
       >
         {isExpanded ? <BiCaretDown /> : <BiCaretRight />}
@@ -31,11 +31,59 @@ function VersionFilter() {
           Filter by Rating
         </span>
       </button>
-      <div className={`list-container ${isExpanded ? "expanded" : ""}`}>
-        <div>ayoub</div>
-        <div>ayoub</div>
-        <div>ayoub</div>
-        <div>ayoub</div>
+      <div
+        className={`list-container ${isExpanded ? "expanded" : ""}`}
+        style={{
+          marginLeft: "7px",
+          marginTop: "7px",
+          gap: "7px",
+          display: "grid",
+        }}
+      >
+        <div
+          style={{
+            display: "grid",
+            alignItems: "center",
+            gridTemplateColumns: "50% 30% 20%",
+          }}
+        >
+          <div style={{ fontSize: "16px" }}>1.2.0</div>
+          <div></div>
+          <div style={{ justifySelf: "center", color: "gray" }}>136</div>
+        </div>
+        <div
+          style={{
+            display: "grid",
+            alignItems: "center",
+            gridTemplateColumns: "50% 30% 20%",
+          }}
+        >
+          <div style={{ fontSize: "16px" }}>1.1.4</div>
+          <div></div>
+          <div style={{ justifySelf: "center", color: "gray" }}>136</div>
+        </div>
+        <div
+          style={{
+            display: "grid",
+            alignItems: "center",
+            gridTemplateColumns: "50% 30% 20%",
+          }}
+        >
+          <div style={{ fontSize: "16px" }}>1.1.0</div>
+          <div></div>
+          <div style={{ justifySelf: "center", color: "gray" }}>136</div>
+        </div>
+        <div
+          style={{
+            display: "grid",
+            alignItems: "center",
+            gridTemplateColumns: "50% 30% 20%",
+          }}
+        >
+          <div style={{ fontSize: "16px" }}>1.0</div>
+          <div></div>
+          <div style={{ justifySelf: "center", color: "gray" }}>136</div>
+        </div>
       </div>
     </div>
   );
