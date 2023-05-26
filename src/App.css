@@ -17,6 +17,9 @@
 }
 
 .leftLayout{
-  border-right: 1px solid grey;
+  border-right: 0.5px solid grey;
   padding:6%
+}
+.rightLayout{
+  border-left: 0.5px solid grey;
 }

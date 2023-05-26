@@ -4,6 +4,7 @@ import ReviewsFilter from "./Left/ReviewsFilter";
 import SearchReview from "./Left/SearchReview";
 import TimeFilter from "./Left/TimeFilter";
 import VersionFilter from "./Left/VersionFilter";
+import ReviewsBody from "./Right/ReviewsBody";
 import SelectProducts from "./Top/SelectProducts";
 import SortingReviews from "./Top/SortingReviews";
 import Translation from "./Top/Translation";
@@ -29,6 +30,12 @@ function AppsReviews() {
           <ReviewsFilter />
           <VersionFilter />
           <CountryFilter />
+        </div>
+        <div
+          className="rightLayout"
+          style={{ padding: "10px", paddingTop: "20px" }}
+        >
+          <ReviewsBody />
         </div>
       </div>
     </div>

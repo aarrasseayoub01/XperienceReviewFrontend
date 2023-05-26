@@ -26,7 +26,7 @@ function SearchReview() {
         type="text"
         placeholder="search"
         style={{
-          padding: "5px 10px",
+          padding: "5px 2px",
           border: "none",
           outline: "none",
           color: "black",
