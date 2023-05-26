@@ -11,17 +11,25 @@
     padding: 0;
   
     border: 1px solid grey;
-    width: 30%;
+    width: 95%;
+    margin-left: 5px;
   }
   
   .menu > li {
     margin: 0;
   
     background-color: white;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
-  
+  .menu >li:last-child{
+    border:none
+  }
   .menu > li:hover {
     background-color: lightgray;
+    
   }
   
   .menu > li > div {
@@ -40,19 +48,11 @@
     cursor: pointer;
   }
 
-.trigger{
-    display: inline-grid;
-    grid-template-columns: 10% 30% 60%;
-    align-items: center;
-    padding: 5px;
-    border: 1px solid;
-    border-color: rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
-}
-.right-item {
-    justify-self: end;
-    margin-top: 5px;
-  }
+
+
 .left-item{
     justify-self: baseline;
+}
+.textColor{
+    color: rgb(50, 50, 50);
 }

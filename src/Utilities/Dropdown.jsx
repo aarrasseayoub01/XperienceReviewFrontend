@@ -1,6 +1,6 @@
 import "./Dropdown.css"
 import React from "react";
-const Dropdown = ({ trigger, menu }) => {
+const Dropdown = ({ title, trigger, menu }) => {
     const [open, setOpen] = React.useState(false);
   
     const handleOpen = () => {
@@ -9,6 +9,9 @@ const Dropdown = ({ trigger, menu }) => {
   
     return (
       <div className="dropdown">
+        <div className="textColor" style={{ marginBottom: "5px" }}>
+        {title}
+      </div>
         {React.cloneElement(trigger, {
           onClick: handleOpen,
         })}

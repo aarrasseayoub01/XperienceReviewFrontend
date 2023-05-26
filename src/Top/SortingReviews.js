@@ -1,8 +1,8 @@
 import "./Top.css";
 import React, { useState } from "react";
 import Dropdown from "../Utilities/Dropdown";
-import { IoIosArrowDown } from "react-icons/io";
-function SelectProducts() {
+import { RxCaretSort } from "react-icons/rx";
+function SortingReviews() {
   const [open, setOpen] = useState(false);
 
   const handleMenuOne = () => {
@@ -19,28 +19,28 @@ function SelectProducts() {
     <>
       <Dropdown
         open={open}
-        title={"select products"}
+        title={"sorting"}
         trigger={
           <div
             className="dropdown1"
             style={{
               display: "grid",
-              gridTemplateColumns: "3vw 9vw 16vw",
+              gridTemplateColumns: "5vw 3vw",
               alignItems: "center",
-              padding: "5px",
+              paddingInline: "10px",
               border: "1px solid",
               borderColor: "rgba(0, 0, 0, 0.3)",
               borderRadius: "5px",
             }}
           >
-            <div className="randomColor" />
             <div
               className="productName left-item"
               style={{
+                fontSize: "0.8vw",
                 fontWeight: 500,
               }}
             >
-              My App + 2
+              Newest First
             </div>
             <div
               className="dropdownArrow"
@@ -49,18 +49,32 @@ function SelectProducts() {
                 marginTop: "5px",
               }}
             >
-              <IoIosArrowDown size={20} color="grey" />
+              <RxCaretSort size={20} />
             </div>
           </div>
         }
         menu={[
-          <div onClick={handleMenuOne} className=" ">
-            <div className="randomColor" />
-            <div className="productName left-item">My App + 3</div>
+          <div onClick={handleMenuOne} className="divider ">
+            <div></div>
+            <div
+              className="productName item-left "
+              style={{
+                fontSize: "1.8vh",
+              }}
+            >
+              Latest
+            </div>
           </div>,
-          <div onClick={handleMenuTwo} className=" ">
-            <div className="randomColor" />
-            <div className="productName left-item">My App + 4</div>
+          <div onClick={handleMenuTwo} className="divider ">
+            <div></div>
+            <div
+              className="productName item-left"
+              style={{
+                fontSize: "1.8vh",
+              }}
+            >
+              Oldest
+            </div>
           </div>,
         ]}
       />
@@ -68,4 +82,4 @@ function SelectProducts() {
   );
 }
 
-export default SelectProducts;
+export default SortingReviews;

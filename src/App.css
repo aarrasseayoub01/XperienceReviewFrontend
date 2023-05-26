@@ -1,4 +1,21 @@
 .App {
   margin-inline: 20vw;
 }
+.topLayout{
+  display: inline-grid;
+  grid-template-columns: 28vw 10vw 12vw 10vw;
+  align-items: center;
+  justify-items: center;
+  padding-bottom: 30px;
+}
 
+.mainLayout{
+  display: inline-grid;
+  grid-template-columns: 15vw 45vw;
+ 
+}
+
+.leftLayout{
+  border-right: 1px solid grey;
+  padding:6%
+}
