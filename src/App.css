@@ -1,6 +1,7 @@
 .App {
   margin-inline: auto;
-  width:900px
+  width:900px;
+  scroll-behavior: smooth;
 }
 .topLayout{
   display: inline-grid;

@@ -10,7 +10,7 @@ import SortingReviews from "./Top/SortingReviews";
 import Translation from "./Top/Translation";
 function AppsReviews() {
   return (
-    <div className="App">
+    <div id="topRight" className="App">
       <div
         className="topLayout"
         style={{

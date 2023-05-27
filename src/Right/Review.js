@@ -16,7 +16,7 @@ function Review(props) {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "7% 8% 28% 40% 17% ",
+          gridTemplateColumns: "7% 8% 68% 17% ",
           alignItems: "center",
         }}
       >
@@ -32,8 +32,7 @@ function Review(props) {
           style={{
             backgroundColor: "#ccc",
             borderRadius: "3px",
-            width: "35px",
-            height: "24px",
+            height: "26px",
             fontSize: "12px",
             fontWeight: "500",
             alignItems: "center",
@@ -43,15 +42,19 @@ function Review(props) {
         >
           {props.appStoreName}
         </div>
-        <div style={{ fontWeight: "500", fontSize: "18px" }}>
-          {props.reviewHeading}
-        </div>
-        <div style={{ marginTop: "6px" }}>
-          <AiFillStar size={20} color="gold" />
-          <AiFillStar size={20} color="gold" />
-          <AiFillStar size={20} color="gold" />
-          <AiFillStar size={20} color="gold" />
-          <AiFillStar size={20} color="gold" />
+        <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+          <div
+            style={{ fontWeight: "500", fontSize: "18px", marginLeft: "15px" }}
+          >
+            {props.reviewHeading}
+          </div>
+          <div style={{ marginTop: "6px" }}>
+            <AiFillStar size={20} color="gold" />
+            <AiFillStar size={20} color="gold" />
+            <AiFillStar size={20} color="gold" />
+            <AiFillStar size={20} color="gold" />
+            <AiFillStar size={20} color="gold" />
+          </div>
         </div>
         <div
           style={{
@@ -87,8 +90,12 @@ function Review(props) {
           }}
         >
           <span>by {props.reviewuUser}</span>
-          <span>{props.reviewDate}</span>
-          <span>v{props.version}</span>
+          <span>{howMuchTimeAgo(props.reviewDate)}</span>
+          <span>
+            {props.version[0].toLowerCase() === "v"
+              ? "v" + props.version.substring(1)
+              : "v" + props.version}
+          </span>
           <div style={{ display: "flex" }}>
             <img
               src={
@@ -130,5 +137,22 @@ function Review(props) {
       </div>
     </div>
   );
+}
+
+function howMuchTimeAgo(inputDateString) {
+  const inputDate = new Date(inputDateString);
+  const currentDate = new Date();
+
+  const timeDifferenceInMs = currentDate - inputDate; // Calculate the time difference in milliseconds
+  const totalHoursPassed = Math.floor(timeDifferenceInMs / (1000 * 60 * 60)); // Convert milliseconds to hours
+  const totalDaysPassed = Math.floor(totalHoursPassed / 24); // Convert hours to days
+
+  console.log("Total hours passed:", totalHoursPassed);
+  console.log("Total days passed:", totalDaysPassed);
+  if (totalDaysPassed !== 0) {
+    return totalDaysPassed + " days ago";
+  } else {
+    return totalHoursPassed + " hours ago";
+  }
 }
 export default Review;

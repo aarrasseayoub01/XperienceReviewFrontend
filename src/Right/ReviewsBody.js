@@ -2,10 +2,23 @@ import { IoMdNotifications } from "react-icons/io";
 import { BiCaretDown } from "react-icons/bi";
 import Review from "./Review";
 import ReviewList from "../review.json";
+import { useParams, useNavigate } from "react-router-dom";
+import PaginationBar from "../Utilities/PaginationBar";
+import { useRef } from "react";
 function ReviewsBody() {
+  const { page } = useParams();
+  const navigate = useNavigate();
+  const sectionRef = useRef(null);
+
+  const handleNavigation = (page) => {
+    navigate("/" + page);
+    sectionRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <>
       <div
+        ref={sectionRef}
         style={{
           display: "grid",
           gridTemplateColumns: "55% 20% 20%",
@@ -16,7 +29,8 @@ function ReviewsBody() {
         <div
           style={{ fontWeight: "500", fontSize: "14px", marginLeft: "15px" }}
         >
-          Viewing 1-10 of 157 Reviews
+          Viewing {page * 10 + 1}-{page * 10 + 10} of {ReviewList.length}{" "}
+          Reviews
         </div>
         <button
           style={{
@@ -54,7 +68,7 @@ function ReviewsBody() {
         </button>
       </div>
       <div style={{ marginTop: "10px" }}>
-        {ReviewList.map((review) => (
+        {ReviewList.slice(page * 10 + 1, page * 10 + 11).map((review) => (
           <Review
             id={review.id}
             appStoreName={review.appStoreName}
@@ -68,6 +82,10 @@ function ReviewsBody() {
           />
         ))}
       </div>
+      <PaginationBar
+        totalPages={ReviewList.length}
+        onPageChange={(page) => handleNavigation(page)}
+      />
     </>
   );
 }
