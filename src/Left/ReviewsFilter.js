@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Left.css"; // Import the CSS file for styling
 import { BiCaretDown, BiCaretRight } from "react-icons/bi";
 import { AiFillStar } from "react-icons/ai";
@@ -49,11 +49,14 @@ function ReviewsFilter() {
         {RatingList.map((star) => {
           return (
             <div
+              key={star}
               style={{
                 display: "grid",
                 alignItems: "center",
                 gridTemplateColumns: "50% 30% 20%",
+                backgroundColor: star === ratingValue ? "#e8e8e8" : "white",
               }}
+              onClick={() => dispatch(rating(star))}
             >
               <div style={{ display: "flex", alignItems: "center" }}>
                 <AiFillStar size={18} color="gold" />

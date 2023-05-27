@@ -68,11 +68,17 @@ function VersionFilter() {
                     ? "#e8e8e8"
                     : "white",
               }}
+              onClick={(e) =>
+                dispatch(
+                  version(
+                    version1[0].toLowerCase() === "v"
+                      ? version1.slice(1)
+                      : version1
+                  )
+                )
+              }
             >
-              <div
-                style={{ fontSize: "16px", cursor: "default" }}
-                onClick={(e) => dispatch(version(e.target.innerText))}
-              >
+              <div style={{ fontSize: "16px", cursor: "default" }}>
                 {version1[0].toLowerCase() === "v"
                   ? version1.slice(1)
                   : version1}

@@ -1,14 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Left.css"; // Import the CSS file for styling
 import { BiCaretDown, BiCaretRight } from "react-icons/bi";
-
+import ReviewList from "../review.json";
+import { useSelector, useDispatch } from "react-redux";
+import { country } from "../Reducers/filter.js";
 function CountryFilter() {
   const [isExpanded, setIsExpanded] = useState(false);
-
+  const [countries, setCountries] = useState([]);
+  const countryValue = useSelector((state) => state.filter.country);
+  const dispatch = useDispatch();
   const handleButtonClick = () => {
     setIsExpanded(!isExpanded);
   };
 
+  useEffect(() => {
+    const set = new Set();
+    ReviewList.forEach((review) => set.add(review.countryName));
+    const array = [...set];
+    setCountries(array);
+  }, []);
   return (
     <div>
       <button
@@ -40,117 +50,62 @@ function CountryFilter() {
           display: "grid",
         }}
       >
-        <div
-          style={{
-            display: "grid",
-            alignItems: "center",
-            gridTemplateColumns: "80% 20%",
-          }}
-        >
+        {countries.map((country1, i) => (
           <div
-            style={{ fontSize: "16px", display: "flex", alignItems: "center" }}
+            style={{
+              display: "grid",
+              alignItems: "center",
+              gridTemplateColumns: "80% 20%",
+              backgroundColor: country1 === countryValue ? "#e8e8e8" : "white",
+            }}
+            onClick={() => dispatch(country(country1))}
           >
-            <img
-              src="https://cdn.countryflags.com/thumbs/united-states-of-america/flag-400.png"
-              alt="United States"
+            <div
               style={{
-                width: "20px",
-                height: "15px",
-                marginRight: "10px",
-                borderRadius: "3px",
-                border: "0.1px solid #ccc",
+                fontSize: "16px",
+                display: "flex",
+                alignItems: "center",
               }}
-            />
-            <span style={{ fontSize: "12px", fontWeight: "500" }}>
-              United States
-            </span>
-          </div>
+            >
+              <img
+                src={
+                  "https://cdn.countryflags.com/thumbs/" +
+                  (country1 === "US"
+                    ? "united-states-of-america"
+                    : country1 === "UK"
+                    ? "united-kingdom"
+                    : country1.toLowerCase()) +
+                  "/flag-400.png"
+                }
+                alt="United States"
+                style={{
+                  width: "20px",
+                  height: "15px",
+                  marginRight: "10px",
+                  borderRadius: "3px",
+                  border: "0.1px solid #ccc",
+                }}
+              />
+              <span style={{ fontSize: "12px", fontWeight: "500" }}>
+                {country1}
+              </span>
+            </div>
 
-          <div style={{ justifySelf: "center", color: "gray" }}>136</div>
-        </div>
-        <div
-          style={{
-            display: "grid",
-            alignItems: "center",
-            gridTemplateColumns: "80% 20%",
-          }}
-        >
-          <div
-            style={{ fontSize: "16px", display: "flex", alignItems: "center" }}
-          >
-            <img
-              src="https://cdn.countryflags.com/thumbs/united-kingdom/flag-400.png"
-              alt="United Kingdom"
-              style={{
-                width: "20px",
-                height: "15px",
-                marginRight: "10px",
-                borderRadius: "3px",
-                border: "0.1px solid #ccc",
-              }}
-            />
-            <span style={{ fontSize: "12px", fontWeight: "500" }}>
-              United Kingdom
-            </span>
+            <div style={{ justifySelf: "center", color: "gray" }}>
+              {reviewsCountry(country1)}
+            </div>
           </div>
-
-          <div style={{ justifySelf: "center", color: "gray" }}>136</div>
-        </div>
-        <div
-          style={{
-            display: "grid",
-            alignItems: "center",
-            gridTemplateColumns: "80% 20%",
-          }}
-        >
-          <div
-            style={{ fontSize: "16px", display: "flex", alignItems: "center" }}
-          >
-            <img
-              src="https://cdn.countryflags.com/thumbs/germany/flag-400.png"
-              alt="Germany"
-              style={{
-                width: "20px",
-                height: "15px",
-                marginRight: "10px",
-                borderRadius: "3px",
-                border: "0.1px solid #ccc",
-              }}
-            />
-            <span style={{ fontSize: "12px", fontWeight: "500" }}>Germany</span>
-          </div>
-
-          <div style={{ justifySelf: "center", color: "gray" }}>136</div>
-        </div>
-        <div
-          style={{
-            display: "grid",
-            alignItems: "center",
-            gridTemplateColumns: "80% 20%",
-          }}
-        >
-          <div
-            style={{ fontSize: "16px", display: "flex", alignItems: "center" }}
-          >
-            <img
-              src="https://cdn.countryflags.com/thumbs/japan/flag-400.png"
-              alt="Japan"
-              style={{
-                width: "20px",
-                height: "15px",
-                marginRight: "10px",
-                borderRadius: "3px",
-                border: "0.1px solid #ccc",
-              }}
-            />
-            <span style={{ fontSize: "12px", fontWeight: "500" }}>Japan</span>
-          </div>
-
-          <div style={{ justifySelf: "center", color: "gray" }}>136</div>
-        </div>
+        ))}
       </div>
     </div>
   );
 }
+function reviewsCountry(country) {
+  let counter = 0;
 
+  ReviewList.forEach((review) => {
+    review.countryName === country && counter++;
+  });
+  return counter;
+}
 export default CountryFilter;
