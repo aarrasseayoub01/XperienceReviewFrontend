@@ -1,5 +1,9 @@
 import "./Left.css";
+import { useSelector, useDispatch } from "react-redux";
+import { search } from "../Reducers/filter.js";
 function SearchReview() {
+  const searchValue = useSelector((state) => state.filter.search);
+  const dispatch = useDispatch();
   return (
     <div
       style={{
@@ -25,6 +29,8 @@ function SearchReview() {
         className="inputPlaceholder"
         type="text"
         placeholder="search"
+        value={searchValue}
+        onChange={(e) => dispatch(search(e.target.value))}
         style={{
           padding: "5px 2px",
           border: "none",

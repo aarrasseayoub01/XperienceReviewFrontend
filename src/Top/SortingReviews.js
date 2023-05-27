@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 import Dropdown from "../Utilities/Dropdown";
 import { RxCaretSort } from "react-icons/rx";
+import { useSelector, useDispatch } from "react-redux";
+import { order } from "../Reducers/filter.js";
 function SortingReviews() {
   const [open, setOpen] = useState(false);
-
+  const orderValue = useSelector((state) => state.filter.order);
+  const dispatch = useDispatch();
   const handleMenuOne = () => {
-    // do something
+    dispatch(order("Newest"));
     setOpen(false);
   };
 
   const handleMenuTwo = () => {
-    // do something
+    dispatch(order("Oldest"));
     setOpen(false);
   };
-
   return (
     <>
       <Dropdown
@@ -40,7 +42,7 @@ function SortingReviews() {
                 fontWeight: 500,
               }}
             >
-              Newest First
+              {orderValue} First
             </div>
             <div
               className="dropdownArrow"

@@ -49,11 +49,11 @@ function Review(props) {
             {props.reviewHeading}
           </div>
           <div style={{ marginTop: "6px" }}>
-            <AiFillStar size={20} color="gold" />
-            <AiFillStar size={20} color="gold" />
-            <AiFillStar size={20} color="gold" />
-            <AiFillStar size={20} color="gold" />
-            <AiFillStar size={20} color="gold" />
+            <AiFillStar size={20} color={props.rating > 0 ? "gold" : "gray"} />
+            <AiFillStar size={20} color={props.rating > 1 ? "gold" : "gray"} />
+            <AiFillStar size={20} color={props.rating > 2 ? "gold" : "gray"} />
+            <AiFillStar size={20} color={props.rating > 3 ? "gold" : "gray"} />
+            <AiFillStar size={20} color={props.rating > 4 ? "gold" : "gray"} />
           </div>
         </div>
         <div
@@ -147,8 +147,6 @@ function howMuchTimeAgo(inputDateString) {
   const totalHoursPassed = Math.floor(timeDifferenceInMs / (1000 * 60 * 60)); // Convert milliseconds to hours
   const totalDaysPassed = Math.floor(totalHoursPassed / 24); // Convert hours to days
 
-  console.log("Total hours passed:", totalHoursPassed);
-  console.log("Total days passed:", totalDaysPassed);
   if (totalDaysPassed !== 0) {
     return totalDaysPassed + " days ago";
   } else {

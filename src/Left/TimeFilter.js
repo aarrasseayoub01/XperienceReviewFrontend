@@ -2,16 +2,19 @@ import "./Left.css";
 import React, { useState } from "react";
 import Dropdown from "../Utilities/Dropdown";
 import { IoIosArrowDown } from "react-icons/io";
+import { useSelector, useDispatch } from "react-redux";
+import { time } from "../Reducers/filter.js";
 function TimeFilter() {
   const [open, setOpen] = useState(false);
-
+  const timeValue = useSelector((state) => state.filter.time);
+  const dispatch = useDispatch();
   const handleMenuOne = () => {
-    // do something
+    dispatch(time("1000 days >"));
     setOpen(false);
   };
 
   const handleMenuTwo = () => {
-    // do something
+    dispatch(time("1000 days <"));
     setOpen(false);
   };
 
@@ -40,7 +43,7 @@ function TimeFilter() {
                 marginLeft: "-10px",
               }}
             >
-              all time
+              {timeValue}
             </div>
             <div
               className="dropdownArrow"
@@ -56,11 +59,11 @@ function TimeFilter() {
         menu={[
           <div onClick={handleMenuOne} className=" ">
             <div className="randomColor" />
-            <div className="productName left-item">My App + 3</div>
+            <div className="productName left-item">less than 1000 days</div>
           </div>,
           <div onClick={handleMenuTwo} className=" ">
             <div className="randomColor" />
-            <div className="productName left-item">My App + 4</div>
+            <div className="productName left-item">more than a 1000 days</div>
           </div>,
         ]}
       />

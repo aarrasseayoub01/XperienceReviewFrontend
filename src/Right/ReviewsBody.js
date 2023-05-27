@@ -70,7 +70,7 @@ function ReviewsBody() {
       <div style={{ marginTop: "10px" }}>
         {ReviewList.slice(page * 10 + 1, page * 10 + 11).map((review) => (
           <Review
-            id={review.id}
+            key={review.id}
             appStoreName={review.appStoreName}
             reviewDate={review.reviewDate}
             rating={review.rating}

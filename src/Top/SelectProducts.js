@@ -2,16 +2,15 @@ import "./Top.css";
 import React, { useState } from "react";
 import Dropdown from "../Utilities/Dropdown";
 import { IoIosArrowDown } from "react-icons/io";
+import { useSelector, useDispatch } from "react-redux";
+import { app } from "../Reducers/filter.js";
 function SelectProducts() {
   const [open, setOpen] = useState(false);
+  const appValue = useSelector((state) => state.filter.app);
+  const dispatch = useDispatch();
 
-  const handleMenuOne = () => {
-    // do something
-    setOpen(false);
-  };
-
-  const handleMenuTwo = () => {
-    // do something
+  const handleApp = (event) => {
+    dispatch(app(event.target.innerText));
     setOpen(false);
   };
 
@@ -41,7 +40,7 @@ function SelectProducts() {
                 fontWeight: 500,
               }}
             >
-              My App + 2
+              {appValue}
             </div>
             <div
               className="dropdownArrow"
@@ -55,13 +54,21 @@ function SelectProducts() {
           </div>
         }
         menu={[
-          <div onClick={handleMenuOne} className=" ">
+          <div onClick={handleApp} className=" ">
             <div className="randomColor" />
-            <div className="productName left-item">My App + 3</div>
+            <div className="productName left-item">Google</div>
           </div>,
-          <div onClick={handleMenuTwo} className=" ">
+          <div onClick={handleApp} className=" ">
             <div className="randomColor" />
-            <div className="productName left-item">My App + 4</div>
+            <div className="productName left-item">Amazon</div>
+          </div>,
+          <div onClick={handleApp} className=" ">
+            <div className="randomColor" />
+            <div className="productName left-item">FlipKart</div>
+          </div>,
+          <div onClick={handleApp} className=" ">
+            <div className="randomColor" />
+            <div className="productName left-item">Myntra</div>
           </div>,
         ]}
       />
