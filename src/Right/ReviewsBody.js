@@ -17,6 +17,7 @@ import {
 } from "../Reducers/filter.js";
 function ReviewsBody() {
   const { page } = useParams();
+
   const navigate = useNavigate();
   const sectionRef = useRef(null);
   const countryValue = useSelector((state) => state.filter.country);
@@ -43,7 +44,12 @@ function ReviewsBody() {
       if (versionValue === "") {
         return true;
       } else {
-        return review.version === versionValue;
+        console.log(versionValue);
+        return (
+          (review.version[0].toLowerCase() === "v"
+            ? review.version.slice(1)
+            : review.version) === versionValue
+        );
       }
     })
     .filter((review) => {
@@ -70,8 +76,6 @@ function ReviewsBody() {
       if (appValue === "Amazon") {
         return true;
       } else {
-        console.log(appValue);
-
         return review.appStoreName === appValue;
       }
     })
@@ -94,7 +98,9 @@ function ReviewsBody() {
         return -1;
       }
     });
-
+  // if (page === 0 || page > realReviewList.length / 10) {
+  //   return "No such a page";
+  // }
   return (
     <>
       <div
@@ -109,8 +115,7 @@ function ReviewsBody() {
         <div
           style={{ fontWeight: "500", fontSize: "14px", marginLeft: "15px" }}
         >
-          Viewing {page * 10 + 1}-{page * 10 + 10} of {realReviewList.length}{" "}
-          Reviews
+          Viewing {page * 10 - 9}-{page * 10} of {realReviewList.length} Reviews
         </div>
         <button
           style={{
@@ -148,7 +153,7 @@ function ReviewsBody() {
         </button>
       </div>
       <div style={{ marginTop: "10px" }}>
-        {realReviewList.slice(page * 10 + 1, page * 10 + 11).map((review) => (
+        {realReviewList.slice(page * 10 + -10, page * 10 + 1).map((review) => (
           <Review
             key={review.id}
             appStoreName={review.appStoreName}
@@ -163,7 +168,7 @@ function ReviewsBody() {
         ))}
       </div>
       <PaginationBar
-        totalPages={realReviewList.length}
+        totalPages={Math.ceil(realReviewList.length / 10)}
         onPageChange={(page) => handleNavigation(page)}
       />
     </>
