@@ -1,13 +1,14 @@
 import { AiFillStar } from "react-icons/ai";
 import { IoIosArrowDown } from "react-icons/io";
 
-function Review() {
+function Review(props) {
   return (
     <div
       style={{
         margin: "15px",
         padding: "15px",
         borderRadius: "7px",
+        position: "relative",
         boxShadow:
           "0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1), 0 -2px 4px rgba(0, 0, 0, 0.1), 0 -4px 8px rgba(0, 0, 0, 0.1)",
       }}
@@ -40,10 +41,10 @@ function Review() {
             justifyContent: "center",
           }}
         >
-          iOS
+          {props.appStoreName}
         </div>
         <div style={{ fontWeight: "500", fontSize: "18px" }}>
-          I use it every day!
+          {props.reviewHeading}
         </div>
         <div style={{ marginTop: "6px" }}>
           <AiFillStar size={20} color="gold" />
@@ -66,12 +67,9 @@ function Review() {
         </div>
       </div>
       <div
-        style={{ fontSize: "16px", marginTop: "18px", marginBottom: "15px" }}
+        style={{ fontSize: "16px", marginTop: "18px", marginBottom: "18px" }}
       >
-        In this assignment, we have to create a search filter for app reviews.
-        You can think of this just like the search experience you have on
-        flipkart, amazon or myntra for various kinds of products on these
-        websites. Similar to these.
+        {props.reviewText}
       </div>
       <div
         style={{
@@ -88,13 +86,21 @@ function Review() {
             gap: "15px",
           }}
         >
-          <span>by Akemi</span>
-          <span>2 hours ago</span>
-          <span>v1.0.0</span>
+          <span>by {props.reviewuUser}</span>
+          <span>{props.reviewDate}</span>
+          <span>v{props.version}</span>
           <div style={{ display: "flex" }}>
             <img
-              src="https://cdn.countryflags.com/thumbs/japan/flag-400.png"
-              alt="Japan"
+              src={
+                "https://cdn.countryflags.com/thumbs/" +
+                (props.countryName === "US"
+                  ? "united-states-of-america"
+                  : props.countryName === "UK"
+                  ? "united-kingdom"
+                  : props.countryName.toLowerCase()) +
+                "/flag-400.png"
+              }
+              alt={props.countryName}
               style={{
                 width: "20px",
                 height: "15px",
@@ -103,14 +109,22 @@ function Review() {
                 border: "0.1px solid #ccc",
               }}
             />
-            <div>Japan</div>
+            <div>{props.countryName}</div>
           </div>
-        </div>
-        <div style={{ display: "flex", gap: "15px", alignItems: "center" }}>
-          <div>Reply </div>
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <div>Share</div>
-            <IoIosArrowDown style={{ marginTop: "5px" }} />
+          <div
+            style={{
+              display: "flex",
+              gap: "15px",
+              alignItems: "center",
+              position: "absolute",
+              right: "20px",
+            }}
+          >
+            <div>Reply </div>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <div>Share</div>
+              <IoIosArrowDown style={{ marginTop: "5px" }} />
+            </div>
           </div>
         </div>
       </div>

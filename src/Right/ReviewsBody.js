@@ -1,7 +1,7 @@
 import { IoMdNotifications } from "react-icons/io";
 import { BiCaretDown } from "react-icons/bi";
 import Review from "./Review";
-
+import ReviewList from "../review.json";
 function ReviewsBody() {
   return (
     <>
@@ -54,10 +54,19 @@ function ReviewsBody() {
         </button>
       </div>
       <div style={{ marginTop: "10px" }}>
-        <Review />
-        <Review />
-        <Review />
-        <Review />
+        {ReviewList.map((review) => (
+          <Review
+            id={review.id}
+            appStoreName={review.appStoreName}
+            reviewDate={review.reviewDate}
+            rating={review.rating}
+            version={review.version}
+            countryName={review.countryName}
+            reviewHeading={review.reviewHeading}
+            reviewText={review.reviewText}
+            reviewuUser={review.reviewUserName}
+          />
+        ))}
       </div>
     </>
   );
