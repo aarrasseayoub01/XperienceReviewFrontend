@@ -49,11 +49,26 @@ function Review(props) {
             {props.reviewHeading}
           </div>
           <div style={{ marginTop: "6px" }}>
-            <AiFillStar size={20} color={props.rating > 0 ? "gold" : "gray"} />
-            <AiFillStar size={20} color={props.rating > 1 ? "gold" : "gray"} />
-            <AiFillStar size={20} color={props.rating > 2 ? "gold" : "gray"} />
-            <AiFillStar size={20} color={props.rating > 3 ? "gold" : "gray"} />
-            <AiFillStar size={20} color={props.rating > 4 ? "gold" : "gray"} />
+            <AiFillStar
+              size={20}
+              color={props.rating > 0 ? "#ad7637" : "gray"}
+            />
+            <AiFillStar
+              size={20}
+              color={props.rating > 1 ? "#ad7637" : "gray"}
+            />
+            <AiFillStar
+              size={20}
+              color={props.rating > 2 ? "#ad7637" : "gray"}
+            />
+            <AiFillStar
+              size={20}
+              color={props.rating > 3 ? "#ad7637" : "gray"}
+            />
+            <AiFillStar
+              size={20}
+              color={props.rating > 4 ? "#ad7637" : "gray"}
+            />
           </div>
         </div>
         <div
@@ -139,7 +154,7 @@ function Review(props) {
   );
 }
 
-function howMuchTimeAgo(inputDateString) {
+export function howMuchTimeAgo(inputDateString) {
   const inputDate = new Date(inputDateString);
   const currentDate = new Date();
 

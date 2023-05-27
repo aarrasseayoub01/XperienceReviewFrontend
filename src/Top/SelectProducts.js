@@ -9,11 +9,11 @@ function SelectProducts() {
   const appValue = useSelector((state) => state.filter.app);
   const dispatch = useDispatch();
 
-  const handleApp = (event) => {
-    dispatch(app(event.target.innerText));
+  const handleApp = (appName) => {
+    dispatch(app(appName));
     setOpen(false);
   };
-
+  const apps = ["Google", "iOS"];
   return (
     <>
       <Dropdown
@@ -53,24 +53,12 @@ function SelectProducts() {
             </div>
           </div>
         }
-        menu={[
-          <div onClick={handleApp} className=" ">
+        menu={apps.map((app) => (
+          <div onClick={() => handleApp(app)} className=" ">
             <div className="randomColor" />
-            <div className="productName left-item">Google</div>
-          </div>,
-          <div onClick={handleApp} className=" ">
-            <div className="randomColor" />
-            <div className="productName left-item">Amazon</div>
-          </div>,
-          <div onClick={handleApp} className=" ">
-            <div className="randomColor" />
-            <div className="productName left-item">FlipKart</div>
-          </div>,
-          <div onClick={handleApp} className=" ">
-            <div className="randomColor" />
-            <div className="productName left-item">Myntra</div>
-          </div>,
-        ]}
+            <div className="productName left-item">{app}</div>
+          </div>
+        ))}
       />
     </>
   );

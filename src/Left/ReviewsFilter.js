@@ -59,11 +59,11 @@ function ReviewsFilter() {
               onClick={() => dispatch(rating(star))}
             >
               <div style={{ display: "flex", alignItems: "center" }}>
-                <AiFillStar size={18} color="gold" />
-                <AiFillStar size={18} color={star > 1 ? "gold" : "#ccc"} />
-                <AiFillStar size={18} color={star > 2 ? "gold" : "#ccc"} />
-                <AiFillStar size={18} color={star > 3 ? "gold" : "#ccc"} />
-                <AiFillStar size={18} color={star > 4 ? "gold" : "#ccc"} />
+                <AiFillStar size={18} color="#ad7637" />
+                <AiFillStar size={18} color={star > 1 ? "#ad7637" : "#ccc"} />
+                <AiFillStar size={18} color={star > 2 ? "#ad7637" : "#ccc"} />
+                <AiFillStar size={18} color={star > 3 ? "#ad7637" : "#ccc"} />
+                <AiFillStar size={18} color={star > 4 ? "#ad7637" : "#ccc"} />
               </div>
               <div
                 style={{

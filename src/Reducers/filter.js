@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   search: "",
   order: "Newest",
-  app: "Amazon",
+  app: "Google",
   time: "All time",
   rating: "",
   version: "",

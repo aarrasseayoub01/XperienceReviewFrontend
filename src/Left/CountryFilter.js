@@ -52,6 +52,7 @@ function CountryFilter() {
       >
         {countries.map((country1, i) => (
           <div
+            key={country1}
             style={{
               display: "grid",
               alignItems: "center",

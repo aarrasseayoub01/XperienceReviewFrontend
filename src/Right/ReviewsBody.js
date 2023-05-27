@@ -1,19 +1,99 @@
 import { IoMdNotifications } from "react-icons/io";
 import { BiCaretDown } from "react-icons/bi";
-import Review from "./Review";
+import Review, { howMuchTimeAgo } from "./Review";
 import ReviewList from "../review.json";
 import { useParams, useNavigate } from "react-router-dom";
 import PaginationBar from "../Utilities/PaginationBar";
 import { useRef } from "react";
+import { useSelector } from "react-redux";
+import {
+  country,
+  app,
+  version,
+  rating,
+  time,
+  search,
+  order,
+} from "../Reducers/filter.js";
 function ReviewsBody() {
   const { page } = useParams();
   const navigate = useNavigate();
   const sectionRef = useRef(null);
+  const countryValue = useSelector((state) => state.filter.country);
+  const appValue = useSelector((state) => state.filter.app);
+  const versionValue = useSelector((state) => state.filter.version);
+  const ratingValue = useSelector((state) => state.filter.rating);
+  const timeValue = useSelector((state) => state.filter.time);
+  const searchValue = useSelector((state) => state.filter.search);
+  const orderValue = useSelector((state) => state.filter.order);
 
   const handleNavigation = (page) => {
     navigate("/" + page);
     sectionRef.current.scrollIntoView({ behavior: "smooth" });
   };
+  const realReviewList = ReviewList.filter((review) => {
+    if (countryValue === "") {
+      return true;
+    } else {
+      return review.countryName === countryValue;
+    }
+  })
+
+    .filter((review) => {
+      if (versionValue === "") {
+        return true;
+      } else {
+        return review.version === versionValue;
+      }
+    })
+    .filter((review) => {
+      if (ratingValue === "") {
+        return true;
+      } else {
+        return parseInt(review.rating) === ratingValue;
+      }
+    })
+    .filter((review) => {
+      if (timeValue === "All time") {
+        return true;
+      } else {
+        const match = howMuchTimeAgo(review.reviewDate).match(/\d+/);
+        const firstNumber = match ? parseInt(match[0]) : null;
+        if (timeValue[timeValue.length - 1] === "<") {
+          return firstNumber > 1000;
+        } else {
+          return firstNumber < 1000;
+        }
+      }
+    })
+    .filter((review) => {
+      if (appValue === "Amazon") {
+        return true;
+      } else {
+        console.log(appValue);
+
+        return review.appStoreName === appValue;
+      }
+    })
+    .filter((review) => {
+      if (searchValue === "") {
+        return true;
+      } else {
+        return (
+          review.reviewHeading
+            .toLowerCase()
+            .includes(searchValue.toLowerCase()) ||
+          review.reviewText.toLowerCase().includes(searchValue.toLowerCase())
+        );
+      }
+    })
+    .sort((a, b) => {
+      if (a.reviewCreatedOn < b.reviewCreatedOn) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
 
   return (
     <>
@@ -29,7 +109,7 @@ function ReviewsBody() {
         <div
           style={{ fontWeight: "500", fontSize: "14px", marginLeft: "15px" }}
         >
-          Viewing {page * 10 + 1}-{page * 10 + 10} of {ReviewList.length}{" "}
+          Viewing {page * 10 + 1}-{page * 10 + 10} of {realReviewList.length}{" "}
           Reviews
         </div>
         <button
@@ -68,7 +148,7 @@ function ReviewsBody() {
         </button>
       </div>
       <div style={{ marginTop: "10px" }}>
-        {ReviewList.slice(page * 10 + 1, page * 10 + 11).map((review) => (
+        {realReviewList.slice(page * 10 + 1, page * 10 + 11).map((review) => (
           <Review
             key={review.id}
             appStoreName={review.appStoreName}
@@ -83,7 +163,7 @@ function ReviewsBody() {
         ))}
       </div>
       <PaginationBar
-        totalPages={ReviewList.length}
+        totalPages={realReviewList.length}
         onPageChange={(page) => handleNavigation(page)}
       />
     </>
