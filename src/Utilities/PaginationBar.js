@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Pagination.css";
-function PaginationBar({ totalPages, onPageChange }) {
-  const [currentPage, setCurrentPage] = useState(1);
+
+function PaginationBar({ totalPages, onPageChange, page }) {
+  const [currentPage, setCurrentPage] = useState(page);
 
   const handleClick = (page) => {
     setCurrentPage(page);
     onPageChange(page);
   };
-
+  useEffect(() => {
+    setCurrentPage(page);
+    onPageChange(page);
+  }, [page]);
+  console.log(page);
   const renderPagination = () => {
     const paginationItems = [];
     let startPage = 1;

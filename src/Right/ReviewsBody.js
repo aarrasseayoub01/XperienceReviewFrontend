@@ -97,7 +97,7 @@ function ReviewsBody() {
   //   return "No such a page";
   // }
   useEffect(() => {
-    setPage(1);
+    handleNavigation(1);
   }, [
     countryValue,
     ratingValue,
@@ -121,7 +121,8 @@ function ReviewsBody() {
         <div
           style={{ fontWeight: "500", fontSize: "14px", marginLeft: "15px" }}
         >
-          Viewing {page * 10 - 9}-{page * 10} of {realReviewList.length} Reviews
+          Viewing {page * 10 - 9}-{Math.min(page * 10, realReviewList.length)}{" "}
+          of {realReviewList.length} Reviews
         </div>
         <button
           style={{
@@ -176,6 +177,7 @@ function ReviewsBody() {
       <PaginationBar
         totalPages={Math.ceil(realReviewList.length / 10)}
         onPageChange={(page) => handleNavigation(page)}
+        page={page}
       />
     </>
   );
