@@ -2,17 +2,14 @@ import { IoMdNotifications } from "react-icons/io";
 import { BiCaretDown } from "react-icons/bi";
 import Review, { howMuchTimeAgo } from "./Review";
 import ReviewList from "../review.json";
-import { useParams, useNavigate } from "react-router-dom";
+
 import PaginationBar from "../Utilities/PaginationBar";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 function ReviewsBody() {
-  let { pageP } = useParams();
-  console.log(pageP);
-  const page = pageP !== undefined ? pageP : 1;
-  console.log(page);
-  const navigate = useNavigate();
+  const [page, setPage] = useState(1);
+
   const sectionRef = useRef(null);
   const countryValue = useSelector((state) => state.filter.country);
   const appValue = useSelector((state) => state.filter.app);
@@ -23,7 +20,7 @@ function ReviewsBody() {
   const orderValue = useSelector((state) => state.filter.order);
 
   const handleNavigation = (page) => {
-    navigate("/" + page);
+    setPage(page);
     sectionRef.current.scrollIntoView({ behavior: "smooth" });
   };
   const realReviewList = ReviewList.filter((review) => {
@@ -67,11 +64,7 @@ function ReviewsBody() {
       }
     })
     .filter((review) => {
-      if (appValue === "Amazon") {
-        return true;
-      } else {
-        return review.appID.slice(4).toLowerCase() === appValue.toLowerCase();
-      }
+      return review.appID.slice(4).toLowerCase() === appValue.toLowerCase();
     })
     .filter((review) => {
       if (searchValue === "") {
@@ -86,15 +79,33 @@ function ReviewsBody() {
       }
     })
     .sort((a, b) => {
-      if (a.reviewCreatedOn < b.reviewCreatedOn) {
-        return 1;
+      if (orderValue === "Newest") {
+        if (a.reviewDate > b.reviewDate) {
+          return 1;
+        } else {
+          return -1;
+        }
       } else {
-        return -1;
+        if (a.reviewDate < b.reviewDate) {
+          return 1;
+        } else {
+          return -1;
+        }
       }
     });
   // if (page === 0 || page > realReviewList.length / 10) {
   //   return "No such a page";
   // }
+  useEffect(() => {
+    setPage(1);
+  }, [
+    countryValue,
+    ratingValue,
+    versionValue,
+    searchValue,
+    timeValue,
+    appValue,
+  ]);
 
   return (
     <>

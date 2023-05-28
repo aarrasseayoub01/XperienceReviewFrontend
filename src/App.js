@@ -3,10 +3,11 @@ import AppsReviews from "./AppsReviews";
 function App() {
   return (
     <>
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<AppsReviews />} />
-        <Route path="/:page" element={<AppsReviews />} />
-      </Routes>
+        <Route path="/:pageP" element={<AppsReviews />} />
+      </Routes> */}
+      <AppsReviews />
     </>
   );
 }
