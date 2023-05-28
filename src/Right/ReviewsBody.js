@@ -7,10 +7,9 @@ import PaginationBar from "../Utilities/PaginationBar";
 import { useRef, useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
-function ReviewsBody() {
+function ReviewsBody({ smoothy }) {
   const [page, setPage] = useState(1);
 
-  const sectionRef = useRef(null);
   const countryValue = useSelector((state) => state.filter.country);
   const appValue = useSelector((state) => state.filter.app);
   const versionValue = useSelector((state) => state.filter.version);
@@ -21,7 +20,7 @@ function ReviewsBody() {
 
   const handleNavigation = (page) => {
     setPage(page);
-    sectionRef.current.scrollIntoView({ behavior: "smooth" });
+    smoothy();
   };
   const realReviewList = ReviewList.filter((review) => {
     if (countryValue === "") {
@@ -110,7 +109,6 @@ function ReviewsBody() {
   return (
     <>
       <div
-        ref={sectionRef}
         style={{
           display: "grid",
           gridTemplateColumns: "55% 20% 20%",

@@ -41,6 +41,18 @@ function VersionFilter() {
           Filter by Version
         </span>
       </button>
+      <span
+        style={{
+          marginLeft: "40px",
+          fontSize: "14px",
+          color: "blue",
+          visibility: versionValue ? "visible" : "hidden",
+          cursor: "pointer",
+        }}
+        onClick={() => dispatch(version(""))}
+      >
+        clear
+      </span>
       <div
         className={`list-container ${isExpanded ? "expanded" : ""}`}
         style={{

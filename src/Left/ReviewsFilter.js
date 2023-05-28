@@ -37,6 +37,18 @@ function ReviewsFilter() {
           Filter by Rating
         </span>
       </button>
+      <span
+        style={{
+          marginLeft: "40px",
+          fontSize: "14px",
+          color: "blue",
+          visibility: ratingValue ? "visible" : "hidden",
+          cursor: "pointer",
+        }}
+        onClick={() => dispatch(rating(""))}
+      >
+        clear
+      </span>
       <div
         className={`list-container ${isExpanded ? "expanded" : ""}`}
         style={{

@@ -8,9 +8,15 @@ import ReviewsBody from "./Right/ReviewsBody";
 import SelectProducts from "./Top/SelectProducts";
 import SortingReviews from "./Top/SortingReviews";
 import Translation from "./Top/Translation";
+import { useRef } from "react";
 function AppsReviews() {
+  const sectionRef = useRef(null);
+
+  const smoothy = () => {
+    sectionRef.current.scrollIntoView({ behavior: "smooth" });
+  };
   return (
-    <div id="topRight" className="App">
+    <div ref={sectionRef} className="App">
       <div
         className="topLayout"
         style={{
@@ -33,7 +39,7 @@ function AppsReviews() {
         </div>
         <div></div>
         <div className="rightLayout" style={{ paddingTop: "20px" }}>
-          <ReviewsBody />
+          <ReviewsBody smoothy={smoothy} />
         </div>
       </div>
     </div>

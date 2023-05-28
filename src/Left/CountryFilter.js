@@ -41,6 +41,19 @@ function CountryFilter() {
           Filter by Country
         </span>
       </button>
+      <span
+        style={{
+          marginLeft: "40px",
+          fontSize: "14px",
+          color: "blue",
+          visibility: countryValue ? "visible" : "hidden",
+          cursor: "pointer",
+        }}
+        onClick={() => dispatch(country(""))}
+      >
+        clear
+      </span>
+
       <div
         className={`list-container ${isExpanded ? "expanded" : ""}`}
         style={{
