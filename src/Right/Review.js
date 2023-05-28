@@ -10,7 +10,7 @@ function Review(props) {
         borderRadius: "7px",
         position: "relative",
         boxShadow:
-          "0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1), 0 -2px 4px rgba(0, 0, 0, 0.1), 0 -4px 8px rgba(0, 0, 0, 0.1)",
+          "4px 2px 4px rgba(0, 0, 0, 0.06), 10px 15px 8px rgba(0, 0, 0, 0.04), 0 -2px 0px rgba(0, 0, 0, 0.02)",
       }}
     >
       <div
