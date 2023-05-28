@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
+  open: "lol",
   search: "",
   order: "Newest",
   app: "Google",
@@ -13,6 +14,9 @@ export const filterSlice = createSlice({
   name: "filter",
   initialState,
   reducers: {
+    open: (state, action) => {
+      state.open = action.payload;
+    },
     search: (state, action) => {
       state.search = action.payload;
     },
@@ -38,7 +42,7 @@ export const filterSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { search, order, app, time, rating, version, country } =
+export const { open, search, order, app, time, rating, version, country } =
   filterSlice.actions;
 
 export default filterSlice.reducer;

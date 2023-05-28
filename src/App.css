@@ -25,6 +25,11 @@
   position:fixed;
   background-color: white;
   z-index:1;
+  overflow-y: auto;
+  top: 100px;
+  left: 300px;
+  bottom: 0px;
+  
 }
 .rightLayout{
   border-left: 0.5px solid #cccccc60;

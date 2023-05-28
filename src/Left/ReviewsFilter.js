@@ -31,7 +31,7 @@ function ReviewsFilter() {
         <span
           style={{
             fontWeight: 700,
-            fontSize: "0.8vw",
+            fontSize: "14px",
           }}
         >
           Filter by Rating
@@ -56,6 +56,7 @@ function ReviewsFilter() {
           marginTop: "7px",
           gap: "7px",
           display: "grid",
+          cursor: "default",
         }}
       >
         {RatingList.map((star) => {

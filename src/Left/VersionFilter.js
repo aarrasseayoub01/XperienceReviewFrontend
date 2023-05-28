@@ -35,7 +35,7 @@ function VersionFilter() {
         <span
           style={{
             fontWeight: 700,
-            fontSize: "0.8vw",
+            fontSize: "14px",
           }}
         >
           Filter by Version
@@ -60,6 +60,7 @@ function VersionFilter() {
           marginTop: "7px",
           gap: "7px",
           display: "grid",
+          cursor: "default",
         }}
       >
         {versions.map((version1) => {

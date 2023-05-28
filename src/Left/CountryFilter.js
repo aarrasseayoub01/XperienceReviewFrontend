@@ -35,7 +35,7 @@ function CountryFilter() {
         <span
           style={{
             fontWeight: 700,
-            fontSize: "0.8vw",
+            fontSize: "14px",
           }}
         >
           Filter by Country
@@ -61,6 +61,7 @@ function CountryFilter() {
           marginTop: "7px",
           gap: "7px",
           display: "grid",
+          cursor: "default",
         }}
       >
         {countries.map((country1, i) => (
