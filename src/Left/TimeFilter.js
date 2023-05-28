@@ -8,6 +8,10 @@ function TimeFilter() {
   const [open, setOpen] = useState(false);
   const timeValue = useSelector((state) => state.filter.time);
   const dispatch = useDispatch();
+  const handleMenuZero = () => {
+    dispatch(time("All time"));
+    setOpen(false);
+  };
   const handleMenuOne = () => {
     dispatch(time("1000 days >"));
     setOpen(false);
@@ -57,6 +61,10 @@ function TimeFilter() {
           </div>
         }
         menu={[
+          <div onClick={handleMenuZero} className=" ">
+            <div className="randomColor" />
+            <div className="productName left-item">All time</div>
+          </div>,
           <div onClick={handleMenuOne} className=" ">
             <div className="randomColor" />
             <div className="productName left-item">less than 1000 days</div>

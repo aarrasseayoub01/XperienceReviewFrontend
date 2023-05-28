@@ -13,7 +13,7 @@ function SelectProducts() {
     dispatch(app(appName));
     setOpen(false);
   };
-  const apps = ["Google", "iOS"];
+  const apps = ["Amazon", "Flipkart", "Google", "Myntra"];
   return (
     <>
       <Dropdown

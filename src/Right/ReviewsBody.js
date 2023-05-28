@@ -6,18 +6,12 @@ import { useParams, useNavigate } from "react-router-dom";
 import PaginationBar from "../Utilities/PaginationBar";
 import { useRef } from "react";
 import { useSelector } from "react-redux";
-import {
-  country,
-  app,
-  version,
-  rating,
-  time,
-  search,
-  order,
-} from "../Reducers/filter.js";
-function ReviewsBody() {
-  const { page } = useParams();
 
+function ReviewsBody() {
+  let { pageP } = useParams();
+  console.log(pageP);
+  const page = pageP !== undefined ? pageP : 1;
+  console.log(page);
   const navigate = useNavigate();
   const sectionRef = useRef(null);
   const countryValue = useSelector((state) => state.filter.country);
@@ -76,7 +70,7 @@ function ReviewsBody() {
       if (appValue === "Amazon") {
         return true;
       } else {
-        return review.appStoreName === appValue;
+        return review.appID.slice(4).toLowerCase() === appValue.toLowerCase();
       }
     })
     .filter((review) => {
@@ -101,6 +95,7 @@ function ReviewsBody() {
   // if (page === 0 || page > realReviewList.length / 10) {
   //   return "No such a page";
   // }
+
   return (
     <>
       <div

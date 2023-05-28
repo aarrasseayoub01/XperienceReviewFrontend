@@ -4,6 +4,7 @@ function App() {
   return (
     <>
       <Routes>
+        <Route path="/" element={<AppsReviews />} />
         <Route path="/:page" element={<AppsReviews />} />
       </Routes>
     </>
